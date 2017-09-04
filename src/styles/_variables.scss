@@ -1,0 +1,12 @@
+// load default variables
+@import "~signalwerk.documentation.style/variables";
+
+$font-name: (
+  sans: 'OpenSansSignalwerk',
+  serif: 'MerriweatherSignalwerk'
+);
+
+$font-family: (
+  sans: #{map-get($font-name, sans), sans-serif},
+  serif: #{map-get($font-name, serif), serif}
+);
