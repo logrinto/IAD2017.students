@@ -8,3 +8,6 @@ public
 # others
 /src/components/students/students.json
 /src/components/students/students.xlsx
+/enc.js
+/src/components/students/encode.sh
+/src/components/students/img

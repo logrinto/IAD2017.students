@@ -18,6 +18,7 @@ class Student extends React.Component {
     slackID: React.PropTypes.string.isRequired,
     slackTeam: React.PropTypes.string.isRequired,
     github: React.PropTypes.string.isRequired,
+    img: React.PropTypes.string,
   };
 
   render() {
@@ -27,16 +28,20 @@ class Student extends React.Component {
         <hr />
         <h3>{this.props.name} {this.props.surname}</h3>
         <p>
-          {this.props.address}<br />
-          {this.props.zip} {this.props.city} ({this.props.region})<br />
+          {this.props.address && <span>{this.props.address}<br /></span>}
+          {this.props.zip && <span>{this.props.zip} {this.props.city} ({this.props.region})<br /></span>}
 
-          <a href={`tel:${this.props.mobile}`}>{this.props.mobile}</a><br />
-          <a href={`mailto:${this.props.email}`}>{this.props.email}</a><br />
+          {this.props.mobile && <span><a href={`tel:${this.props.mobile}`}>{this.props.mobile}</a><br /></span>}
+          {this.props.email && <span><a href={`mailto:${this.props.email}`}>{this.props.email}</a><br /></span>}
 
-          Geburtstag: {this.props.birthday} <br />
-          Github: <a href={`https://github.com/${this.props.github}/`}>{this.props.github}</a><br />
-          slack: <a href={`slack://user?team=${this.props.slackTeam}&id=${this.props.slackID}`}>@{this.props.slack}</a><br />
+          {this.props.birthday && <span>Geburtstag: {this.props.birthday} <br /></span>}
+          {this.props.github && <span>Github: <a href={`https://github.com/${this.props.github}/`}>{this.props.github}</a><br /></span>}
+          {this.props.slackID && <span>slack: <a href={`slack://user?team=${this.props.slackTeam}&id=${this.props.slackID}`}>@{this.props.slack}</a><br /></span>}
         </p>
+
+        {this.props.img &&
+          <img src={this.props.img} alt="" />
+        }
       </div>
     )
   }
