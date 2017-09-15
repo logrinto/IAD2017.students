@@ -9,7 +9,8 @@
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "eslint-fix": "eslint --ext js --ext jsx src",
     "dev": " webpack-dashboard -- webpack-dev-server",
-    "test": "export NODE_ENV=test && jest"
+    "test": "export NODE_ENV=test && jest",
+    "publish": "node publish.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "signalwerk.documentation.style": "0.0.11"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "babel-core": "^6.23.1",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.1",
