@@ -4,13 +4,14 @@
   "description": "IAD Students",
   "main": "''",
   "scripts": {
-    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
+    "build": "npm run encrypt && webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "eslint-fix": "eslint --ext js --ext jsx src",
     "dev": " webpack-dashboard -- webpack-dev-server",
     "test": "export NODE_ENV=test && jest",
-    "publish": "node publish.js"
+    "encrypt": "node ./data/encode.js",
+    "publish": "npm run build && node publish.js"
   },
   "repository": {
     "type": "git",

@@ -5,10 +5,12 @@ node_modules
 # Ignore build files
 public
 
+# sensitive data
+/data/img/*.jpg
+/data/*.json
+/data/*.pdf
+/data/*.xlsx
+/data/password.js
+
+
 # others
-/src/components/students/students.json
-/src/components/students/students.xlsx
-/enc.js
-/src/components/students/encode.sh
-/src/components/students/img
-/npm-debug.log
