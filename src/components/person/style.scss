@@ -1,3 +1,20 @@
-.redBg {
-  background: red;
+.person {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+.person-img {
+  float: left;
+  padding-right: 3rem;
+}
+
+.person-data {
+  float: left;
+  h3 {
+    margin-top: 0;
+  }
 }
