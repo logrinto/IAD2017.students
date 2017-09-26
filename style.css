@@ -12,8 +12,23 @@
     margin-right: 2%;
   }
 }
-.redBg {
-  background: red;
+.person:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.person-img {
+  float: left;
+  padding-right: 3rem;
+}
+
+.person-data {
+  float: left;
+}
+
+.person-data h3 {
+  margin-top: 0;
 }
 .redBg {
   background: red;
