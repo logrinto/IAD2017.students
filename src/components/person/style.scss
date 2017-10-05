@@ -10,6 +10,11 @@
 .person-img {
   float: left;
   padding-right: 3rem;
+
+  img {
+    width: 12rem;
+    height: auto;
+  }
 }
 
 .person-data {
