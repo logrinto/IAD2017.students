@@ -23,6 +23,11 @@
   padding-right: 3rem;
 }
 
+.person-img img {
+  width: 12rem;
+  height: auto;
+}
+
 .person-data {
   float: left;
 }
