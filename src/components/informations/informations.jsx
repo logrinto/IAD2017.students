@@ -104,6 +104,7 @@ export default class Informations extends React.Component {
           slackID={person.slackID}
           slackTeam={this.state.data.slackteam}
           github={person.github}
+          company={person.company}
           img={this.state.img[person.img]}
         />
       </div>)}
@@ -132,6 +133,7 @@ export default class Informations extends React.Component {
           slack={person.slack}
           slackID={person.slackID}
           slackTeam={this.state.data.slackteam}
+          company={person.company}
           github={person.github}
         />
       </div>)}

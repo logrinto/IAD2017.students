@@ -17,6 +17,7 @@ class Student extends React.Component {
     slack: React.PropTypes.string.isRequired,
     slackID: React.PropTypes.string.isRequired,
     slackTeam: React.PropTypes.string.isRequired,
+    company: React.PropTypes.string,
     github: React.PropTypes.string.isRequired,
     img: React.PropTypes.string,
   };
@@ -43,6 +44,7 @@ class Student extends React.Component {
               {this.props.birthday && <span>Geburtstag: {this.props.birthday} <br /></span>}
               {this.props.github && <span>Github: <a href={`https://github.com/${this.props.github}/`}>{this.props.github}</a><br /></span>}
               {this.props.slackID && <span>slack: <a href={`slack://user?team=${this.props.slackTeam}&id=${this.props.slackID}`}>@{this.props.slack}</a><br /></span>}
+              {this.props.company && <span>Arbeitgeber: {this.props.company} <br /></span>}
             </p>
           </div>
 
