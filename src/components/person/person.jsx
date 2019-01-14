@@ -4,7 +4,6 @@ import './style.scss';
 class Student extends React.Component {
 
   static propTypes = {
-    gender: React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired,
     surname: React.PropTypes.string.isRequired,
     address: React.PropTypes.string.isRequired,

@@ -91,7 +91,6 @@ export default class Informations extends React.Component {
       <h2 id="students">Studierende</h2>
       {this.state.data.students.map((person, i) => <div key={i}>
         <Person
-          gender={person.gender}
           name={person.name}
           surname={person.surname}
           address={person.address}
@@ -121,7 +120,6 @@ export default class Informations extends React.Component {
       <h2 id="teachers">Dozierende</h2>
       {this.state.data.teachers.map((person, i) => <div key={i}>
         <Person
-          gender={person.gender}
           name={person.name}
           surname={person.surname}
           address={person.address}
