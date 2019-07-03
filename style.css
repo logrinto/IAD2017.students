@@ -12,7 +12,19 @@
     margin-right: 2%;
   }
 }
-.person:after {
+.person--out .person-inner {
+  position: relative;
+}
+
+.person--out .person-inner:before {
+  content: "";
+  background-color: rgba(200, 200, 200, 0.7);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.person-inner:after {
   content: "";
   display: table;
   clear: both;
