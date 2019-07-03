@@ -11,6 +11,7 @@
     "dev": " webpack-dashboard -- webpack-dev-server",
     "test": "export NODE_ENV=test && jest",
     "encrypt": "node ./data/encode.js",
+    "decrypt": "node ./data/decrypt.js",
     "publish": "npm run build && node publish.js"
   },
   "repository": {
