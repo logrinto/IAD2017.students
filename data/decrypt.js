@@ -1,13 +1,14 @@
 const CryptoJS = require("crypto-js");
 const fs = require("fs");
 const password = require("./password");
+const class2017 = require("./2017");
+const class2019 = require("./2019");
 
 const path = "./data/";
 
 const decrypt = filename => {
   fs.readFile(`${path + filename}.enc`, (err, data) => {
-
-    var bytes  = CryptoJS.AES.decrypt(data.toString(), password);
+    var bytes = CryptoJS.AES.decrypt(data.toString(), password);
     var originalText = bytes.toString(CryptoJS.enc.Utf8);
 
     fs.writeFile(`${path + filename}`, originalText, (err, result) => {
@@ -16,18 +17,22 @@ const decrypt = filename => {
   });
 };
 
+const decryptBase64 = filename => {
+  fs.readFile(`${path + filename}.enc`, (err, data) => {
+    var bytes = CryptoJS.AES.decrypt(data.toString(), password);
+    var originalText = bytes.toString(CryptoJS.enc.Utf8);
+
+    var onlyBase64 = originalText.substr("data:image/jpg;base64,".length);
+
+    let binaryData = Buffer.from(onlyBase64, "base64");
+
+    fs.writeFile(`${path + filename}`, binaryData, (err, result) => {
+      if (err) console.log("error", err);
+    });
+  });
+};
+
 decrypt("informations.json");
 
-// encryptBase64("img/01.jpg");
-// encryptBase64("img/02.jpg");
-// encryptBase64("img/03.jpg");
-// encryptBase64("img/04.jpg");
-// encryptBase64("img/05.jpg");
-// encryptBase64("img/06.jpg");
-// encryptBase64("img/07.jpg");
-// encryptBase64("img/08.jpg");
-// encryptBase64("img/09.jpg");
-// encryptBase64("img/10.jpg");
-// encryptBase64("img/11.jpg");
-// encryptBase64("img/12.jpg");
-// encryptBase64("img/13.jpg");
+class2017.forEach(item => decryptBase64(item));
+class2019.forEach(item => decryptBase64(item));

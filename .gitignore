@@ -11,8 +11,3 @@ public
 /data/*.pdf
 /data/*.xlsx
 /data/password.js
-
-
-# others
-/data/informations.json.enc
-/data/img

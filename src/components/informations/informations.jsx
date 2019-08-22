@@ -1,157 +1,279 @@
-import React from 'react';
-import './style.scss';
-import InformationsEnc from 'raw-loader!../../../data/informations.json.enc';
+import React from "react";
+import "./style.scss";
+import InformationsEnc from "raw-loader!../../../data/informations.json.enc";
 // import StudentData from 'raw-loader!./students.json';
 
-import Person01 from 'raw-loader!../../../data/img/01.jpg.enc';
-import Person02 from 'raw-loader!../../../data/img/02.jpg.enc';
-import Person03 from 'raw-loader!../../../data/img/03.jpg.enc';
-import Person04 from 'raw-loader!../../../data/img/04.jpg.enc';
-import Person05 from 'raw-loader!../../../data/img/05.jpg.enc';
-import Person06 from 'raw-loader!../../../data/img/06.jpg.enc';
-import Person07 from 'raw-loader!../../../data/img/07.jpg.enc';
-import Person08 from 'raw-loader!../../../data/img/08.jpg.enc';
-import Person09 from 'raw-loader!../../../data/img/09.jpg.enc';
-import Person10 from 'raw-loader!../../../data/img/10.jpg.enc';
-import Person11 from 'raw-loader!../../../data/img/11.jpg.enc';
-import Person12 from 'raw-loader!../../../data/img/12.jpg.enc';
-import Person13 from 'raw-loader!../../../data/img/13.jpg.enc';
+import Person2017_01 from "raw-loader!../../../data/img/2017_01.jpg.enc";
+import Person2017_02 from "raw-loader!../../../data/img/2017_02.jpg.enc";
+import Person2017_03 from "raw-loader!../../../data/img/2017_03.jpg.enc";
+import Person2017_04 from "raw-loader!../../../data/img/2017_04.jpg.enc";
+import Person2017_05 from "raw-loader!../../../data/img/2017_05.jpg.enc";
+import Person2017_06 from "raw-loader!../../../data/img/2017_06.jpg.enc";
+import Person2017_07 from "raw-loader!../../../data/img/2017_07.jpg.enc";
+import Person2017_08 from "raw-loader!../../../data/img/2017_08.jpg.enc";
+import Person2017_09 from "raw-loader!../../../data/img/2017_09.jpg.enc";
+import Person2017_10 from "raw-loader!../../../data/img/2017_10.jpg.enc";
+import Person2017_11 from "raw-loader!../../../data/img/2017_11.jpg.enc";
+import Person2017_12 from "raw-loader!../../../data/img/2017_12.jpg.enc";
+import Person2017_13 from "raw-loader!../../../data/img/2017_13.jpg.enc";
 
-import Person from '../person/person';
-import Account from '../account/account';
-import Password from '../password/password';
+import Person2019_01 from "raw-loader!../../../data/img/2019_01.jpg.enc";
+import Person2019_02 from "raw-loader!../../../data/img/2019_02.jpg.enc";
+import Person2019_03 from "raw-loader!../../../data/img/2019_03.jpg.enc";
+import Person2019_04 from "raw-loader!../../../data/img/2019_04.jpg.enc";
+import Person2019_05 from "raw-loader!../../../data/img/2019_05.jpg.enc";
+import Person2019_06 from "raw-loader!../../../data/img/2019_06.jpg.enc";
+import Person2019_07 from "raw-loader!../../../data/img/2019_07.jpg.enc";
+import Person2019_08 from "raw-loader!../../../data/img/2019_08.jpg.enc";
+import Person2019_09 from "raw-loader!../../../data/img/2019_09.jpg.enc";
+import Person2019_10 from "raw-loader!../../../data/img/2019_10.jpg.enc";
+import Person2019_11 from "raw-loader!../../../data/img/2019_11.jpg.enc";
+import Person2019_12 from "raw-loader!../../../data/img/2019_12.jpg.enc";
+import Person2019_13 from "raw-loader!../../../data/img/2019_13.jpg.enc";
+import Person2019_14 from "raw-loader!../../../data/img/2019_14.jpg.enc";
+import Person2019_15 from "raw-loader!../../../data/img/2019_15.jpg.enc";
+
+import Person from "../person/person";
+import Account from "../account/account";
+import Password from "../password/password";
 var CryptoJS = require("crypto-js");
 
 export default class Informations extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       data: null,
       // data: JSON.parse(StudentData),
       decrypted: false,
-      message: 'Enter password to unlock.',
-      img: {},
+      message: "Enter password to unlock.",
+      img: {}
     };
   }
 
-  decrypt = (password) => {
-    console.log('password', password)
+  decrypt = password => {
+    console.log("password", password);
     // Decrypt
     try {
       var decrypted = CryptoJS.AES.decrypt(InformationsEnc, password);
       const data = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-      this.setState({'data': data})
-      this.setState({'decrypted': true})
+      this.setState({ data: data });
+      this.setState({ decrypted: true });
 
       // to use like
       // img={"data:image/jpeg;base64,"+ this.state.img[person.img] }
 
-      this.setState({'img': {
-        '01': CryptoJS.AES.decrypt(Person01, password).toString(CryptoJS.enc.Utf8),
-        '02': CryptoJS.AES.decrypt(Person02, password).toString(CryptoJS.enc.Utf8),
-        '03': CryptoJS.AES.decrypt(Person03, password).toString(CryptoJS.enc.Utf8),
-        '04': CryptoJS.AES.decrypt(Person04, password).toString(CryptoJS.enc.Utf8),
-        '05': CryptoJS.AES.decrypt(Person05, password).toString(CryptoJS.enc.Utf8),
-        '06': CryptoJS.AES.decrypt(Person06, password).toString(CryptoJS.enc.Utf8),
-        '07': CryptoJS.AES.decrypt(Person07, password).toString(CryptoJS.enc.Utf8),
-        '08': CryptoJS.AES.decrypt(Person08, password).toString(CryptoJS.enc.Utf8),
-        '09': CryptoJS.AES.decrypt(Person09, password).toString(CryptoJS.enc.Utf8),
-        '10': CryptoJS.AES.decrypt(Person10, password).toString(CryptoJS.enc.Utf8),
-        '11': CryptoJS.AES.decrypt(Person11, password).toString(CryptoJS.enc.Utf8),
-        '12': CryptoJS.AES.decrypt(Person12, password).toString(CryptoJS.enc.Utf8),
-        '13': CryptoJS.AES.decrypt(Person13, password).toString(CryptoJS.enc.Utf8),
-      }})
+      this.setState({
+        img: {
+          "2017_01": CryptoJS.AES.decrypt(Person2017_01, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_02": CryptoJS.AES.decrypt(Person2017_02, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_03": CryptoJS.AES.decrypt(Person2017_03, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_04": CryptoJS.AES.decrypt(Person2017_04, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_05": CryptoJS.AES.decrypt(Person2017_05, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_06": CryptoJS.AES.decrypt(Person2017_06, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_07": CryptoJS.AES.decrypt(Person2017_07, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_08": CryptoJS.AES.decrypt(Person2017_08, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_09": CryptoJS.AES.decrypt(Person2017_09, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_10": CryptoJS.AES.decrypt(Person2017_10, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_11": CryptoJS.AES.decrypt(Person2017_11, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_12": CryptoJS.AES.decrypt(Person2017_12, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2017_13": CryptoJS.AES.decrypt(Person2017_13, password).toString(
+            CryptoJS.enc.Utf8
+          ),
 
+          "2019_01": CryptoJS.AES.decrypt(Person2019_01, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_02": CryptoJS.AES.decrypt(Person2019_02, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_03": CryptoJS.AES.decrypt(Person2019_03, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_04": CryptoJS.AES.decrypt(Person2019_04, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_05": CryptoJS.AES.decrypt(Person2019_05, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_06": CryptoJS.AES.decrypt(Person2019_06, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_07": CryptoJS.AES.decrypt(Person2019_07, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_08": CryptoJS.AES.decrypt(Person2019_08, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_09": CryptoJS.AES.decrypt(Person2019_09, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_10": CryptoJS.AES.decrypt(Person2019_10, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_11": CryptoJS.AES.decrypt(Person2019_11, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_12": CryptoJS.AES.decrypt(Person2019_12, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_13": CryptoJS.AES.decrypt(Person2019_13, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_14": CryptoJS.AES.decrypt(Person2019_14, password).toString(
+            CryptoJS.enc.Utf8
+          ),
+          "2019_15": CryptoJS.AES.decrypt(Person2019_15, password).toString(
+            CryptoJS.enc.Utf8
+          )
+        }
+      });
     } catch (e) {
-      console.log(e)
-      this.setState({'message': 'Password wrong.'})
-      this.setState({'decrypted': false})
+      console.log(e);
+      this.setState({ message: "Password wrong." });
+      this.setState({ decrypted: false });
     }
-  }
+  };
 
-
-
-
-  renderPW = () => (<Password decrypt={this.decrypt} message={this.state.message}/>)
+  renderPW = () => (
+    <Password decrypt={this.decrypt} message={this.state.message} />
+  );
 
   renderStudents = () => (
     <div>
       <h1>
         <span className="capitals">IAD</span>
-        2017
       </h1>
 
       <ul>
-        <li><a href="#students">Studierende</a></li>
-        <li><a href="#account">Accounts</a></li>
-        <li><a href="#teachers">Dozierende</a></li>
+        <li>
+          <a href="#students2019">Studierende IAD2019</a>
+        </li>
+        <li>
+          <a href="#students2017">Studierende IAD2017</a>
+        </li>
+        <li>
+          <a href="#account">Accounts</a>
+        </li>
+        <li>
+          <a href="#teachers">Dozierende</a>
+        </li>
       </ul>
 
-      <h2 id="students">Studierende</h2>
-      {this.state.data.students.map((person, i) => <div key={i}>
-        <Person
-          status={person.status}
-          name={person.name}
-          surname={person.surname}
-          address={person.address}
-          zip={person.zip} city={person.city}
-          region={person.region}
-          mobile={person.mobile}
-          email={person.email}
-          birthday={person.birthday}
-          slack={person.slack}
-          slackID={person.slackID}
-          slackTeam={this.state.data.slackteam}
-          github={person.github}
-          company={person.company}
-          img={this.state.img[person.img]}
-        />
-      </div>)}
-      <h2 id="account">Accounts</h2>
-      {this.state.data.accounts.map((account, i) => <div key={i}>
+      <h2 id="students2019">Studierende IAD2019</h2>
+      {this.state.data.studentsIAD2019.map((person, i) => (
+        <div key={i}>
+          <Person
+            status={person.status}
+            name={person.name}
+            surname={person.surname}
+            address={person.address}
+            zip={person.zip}
+            city={person.city}
+            region={person.region}
+            mobile={person.mobile}
+            email={person.email}
+            birthday={person.birthday}
+            slack={person.slack}
+            slackID={person.slackID}
+            slackTeam={this.state.data.slackteam}
+            github={person.github}
+            company={person.company}
+            img={this.state.img[person.img]}
+          />
+        </div>
+      ))}
 
-        <Account
-          title={account.title}
-          info={account.info}
-          url={account.url}
-        />
-      </div>)}
+      <h2 id="students2017">Studierende IAD2017</h2>
+      {this.state.data.studentsIAD2017.map((person, i) => (
+        <div key={i}>
+          <Person
+            status={person.status}
+            name={person.name}
+            surname={person.surname}
+            address={person.address}
+            zip={person.zip}
+            city={person.city}
+            region={person.region}
+            mobile={person.mobile}
+            email={person.email}
+            birthday={person.birthday}
+            slack={person.slack}
+            slackID={person.slackID}
+            slackTeam={this.state.data.slackteam}
+            github={person.github}
+            company={person.company}
+            img={this.state.img[person.img]}
+          />
+        </div>
+      ))}
+      <h2 id="account">Accounts</h2>
+      {this.state.data.accounts.map((account, i) => (
+        <div key={i}>
+          <Account
+            title={account.title}
+            info={account.info}
+            url={account.url}
+          />
+        </div>
+      ))}
 
       <h2 id="teachers">Dozierende</h2>
-      {this.state.data.teachers.map((person, i) => <div key={i}>
-        <Person
-          name={person.name}
-          surname={person.surname}
-          address={person.address}
-          zip={person.zip} city={person.city}
-          region={person.region}
-          mobile={person.mobile}
-          email={person.email}
-          birthday={person.birthday}
-          slack={person.slack}
-          slackID={person.slackID}
-          slackTeam={this.state.data.slackteam}
-          company={person.company}
-          github={person.github}
-        />
-      </div>)}
-      <hr/>
+      {this.state.data.teachers.map((person, i) => (
+        <div key={i}>
+          <Person
+            name={person.name}
+            surname={person.surname}
+            address={person.address}
+            zip={person.zip}
+            city={person.city}
+            region={person.region}
+            mobile={person.mobile}
+            email={person.email}
+            birthday={person.birthday}
+            slack={person.slack}
+            slackID={person.slackID}
+            slackTeam={this.state.data.slackteam}
+            company={person.company}
+            github={person.github}
+          />
+        </div>
+      ))}
+      <hr />
     </div>
-  )
+  );
 
   render() {
     return (
       <div>
-        {!this.state.decrypted &&
-          this.renderPW()
-        }
-        {this.state.data &&
-          this.renderStudents()
-        }
-        <br/>
-        <br/>
+        {!this.state.decrypted && this.renderPW()}
+        {this.state.data && this.renderStudents()}
+        <br />
+        <br />
       </div>
-    )
+    );
   }
 }

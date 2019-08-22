@@ -1,6 +1,8 @@
 const CryptoJS = require("crypto-js");
 const fs = require("fs");
 const password = require("./password");
+const class2017 = require("./2017");
+const class2019 = require("./2019");
 
 const path = "./data/";
 
@@ -19,7 +21,7 @@ const encrypt = filename => {
 
 const encryptBase64 = filename => {
   fs.readFile(path + filename, (err, data) => {
-    const base64data = new Buffer(data).toString("base64");
+    const base64data = Buffer.from(data).toString("base64");
 
     const encrypted = CryptoJS.AES.encrypt(
       `data:image/jpg;base64,${base64data.toString()}`,
@@ -37,16 +39,5 @@ const encryptBase64 = filename => {
 
 encrypt("informations.json");
 
-// encryptBase64("img/01.jpg");
-// encryptBase64("img/02.jpg");
-// encryptBase64("img/03.jpg");
-// encryptBase64("img/04.jpg");
-// encryptBase64("img/05.jpg");
-// encryptBase64("img/06.jpg");
-// encryptBase64("img/07.jpg");
-// encryptBase64("img/08.jpg");
-// encryptBase64("img/09.jpg");
-// encryptBase64("img/10.jpg");
-// encryptBase64("img/11.jpg");
-// encryptBase64("img/12.jpg");
-// encryptBase64("img/13.jpg");
+class2017.forEach(item => encryptBase64(item));
+class2019.forEach(item => encryptBase64(item));
