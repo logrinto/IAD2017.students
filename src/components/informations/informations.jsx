@@ -173,7 +173,7 @@ export default class Informations extends React.Component {
           <a href="#students2019">Studierende IAD2019</a>
         </li>
         <li>
-          <a href="#students2017">Studierende IAD2017</a>
+          <a href="#students2017">Alumni IAD2017</a>
         </li>
         <li>
           <a href="#account">Accounts</a>
