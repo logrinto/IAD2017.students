@@ -207,7 +207,7 @@ export default class Informations extends React.Component {
         </div>
       ))}
 
-      <h2 id="students2017">Studierende IAD2017</h2>
+      <h2 id="students2017">Alumni IAD2017</h2>
       {this.state.data.studentsIAD2017.map((person, i) => (
         <div key={i}>
           <Person

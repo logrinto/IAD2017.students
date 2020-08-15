@@ -27,9 +27,7 @@ class Student extends React.Component {
         <hr />
         <div className={`person person--${this.props.status}`}>
           {this.props.status === "out" && (
-            <h3>
-              Person nicht mehr in der Klasse!
-            </h3>
+            <h3>Person nicht mehr in der Klasse!</h3>
           )}
           <div className="person-inner">
             {this.props.img && (
@@ -51,7 +49,7 @@ class Student extends React.Component {
                 )}
                 {this.props.zip && (
                   <span>
-                    {this.props.zip} {this.props.city} ({this.props.region})
+                    {this.props.zip} {this.props.city} {this.props.region}
                     <br />
                   </span>
                 )}
@@ -89,9 +87,7 @@ class Student extends React.Component {
                   <span>
                     slack:{" "}
                     <a
-                      href={`slack://user?team=${this.props.slackTeam}&id=${
-                        this.props.slackID
-                      }`}
+                      href={`slack://user?team=${this.props.slackTeam}&id=${this.props.slackID}`}
                     >
                       @{this.props.slack}
                     </a>
