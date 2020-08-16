@@ -39,5 +39,5 @@ const encryptBase64 = filename => {
 
 encrypt("informations.json");
 
-class2017.forEach(item => encryptBase64(item));
-class2019.forEach(item => encryptBase64(item));
+// class2017.forEach(item => encryptBase64(item));
+// class2019.forEach(item => encryptBase64(item));
