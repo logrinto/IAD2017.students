@@ -23,7 +23,7 @@
   "homepage": "https://github.com/logrinto/IAD2017.students#readme",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "node-sass": "^4.3.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^7.0.0",
     "react": "15.6.1",
     "react-dom": "15.4.2",
@@ -65,7 +65,7 @@
     "webpack": "^3.3.0",
     "webpack-cleanup-plugin": "^0.4.2",
     "webpack-dashboard": "^0.3.0",
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^3.1.11"
   },
   "jest": {
     "verbose": true,
